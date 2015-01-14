@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.leidos.xchangecore</groupId>
+    <artifactId>core</artifactId>
+    <packaging>pom</packaging>
+    <name>xChangeCore project</name>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>infrastructure-messages</module>
+        <module>infrastructure-services</module>
+        <!--
+            <module>infrastructure-xmpp</module>
+        -->
+    </modules>
+
+    <properties>
+        <Implementation-Version>1.0.0</Implementation-Version>
+        <spring.version>2.5.6</spring.version>
+        <spring.security.version>2.0.4</spring.security.version>
+        <spring.integrations.version>1.0.4.RELEASE</spring.integrations.version>
+        <gx.version>1.2.6</gx.version>
+        <xmlbeans-em.version>1.1.4</xmlbeans-em.version>
+        <xmlbeans-have.version>1.1.2</xmlbeans-have.version>
+        <xmlbeans-infrastructure.version>1.2.1</xmlbeans-infrastructure.version>
+        <xmlbeans-edxl_rm.version>1.0.0</xmlbeans-edxl_rm.version>
+        <infrastructure.version>1.2.0</infrastructure.version>
+        <infrastructure.xmpp.version>1.2.0</infrastructure.xmpp.version>
+        <em.version>1.2.0</em.version>
+        <em-war.version>1.1.1</em-war.version>
+        <github.global.server>github</github.global.server>
+        <!--
+            <my.hibernate.hbm2ddl.auto>update</my.hibernate.hbm2ddl.auto>
+            <my.hibernate.search.default.indexBase>target</my.hibernate.search.default.indexBase>
+            <my.annotation.driven></my.annotation.driven>
+        -->
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>xchangecore-mvn-repo</id>
+            <name>The global repository for the general purpose</name>
+            <url>https://github.com/huangdy/xchangecore-maven-repo/raw/master</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.10</version>
+                <configuration>
+                    <!-- git commit message -->
+                    <message>Maven artifacts for ${project.version}</message>
+                    <!-- disable webpage processing -->
+                    <noJekyll>true</noJekyll>
+                    <!-- matches distribution management repository url above -->
+                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+                    <!-- remote branch name -->
+                    <branch>refs/heads/master</branch>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <!-- don't delete old artifacts -->
+                    <merge>true</merge>
+                    <!-- github repo name -->
+                    <repositoryName>xchangecore-mvn-repo</repositoryName>
+                    <!-- github username -->
+                    <repositoryOwner>huangdy</repositoryOwner>
+                </configuration>
+                <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy'
+                        phase -->
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xmlbeans-maven-plugin</artifactId>
+                <version>2.3.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xmlbeans</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>true</inherited>
+                <configuration>
+                    <schemaDirectory>src/main/xsd</schemaDirectory>
+                    <memoryMaximumSize>1024m</memoryMaximumSize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
