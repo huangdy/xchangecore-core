@@ -11,7 +11,6 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>infra-messages</module>
         <module>infra-services</module>
         <module>infra-xmpp</module>
         <module>em-services</module>
@@ -29,7 +28,6 @@
         <xmlbeans-have.version>1.1.2</xmlbeans-have.version>
         <xmlbeans-infrastructure.version>1.2.1</xmlbeans-infrastructure.version>
         <xmlbeans-edxl_rm.version>1.0.0</xmlbeans-edxl_rm.version>
-        <infra-messages.version>2.0.0</infra-messages.version>
         <infra-xmpp.version>2.0.0</infra-xmpp.version>
         <infra-services.version>2.0.0</infra-services.version>
         <em-services.version>2.0.0</em-services.version>
