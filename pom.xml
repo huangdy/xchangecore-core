@@ -11,6 +11,12 @@
     <version>1.0.0</version>
 
     <modules>
+        <!-- these jar don't need to re-compile unless you plan to change the schemas
+            <module>xmlbeans-infrastructure</module>
+            <module>xmlbeans-edxl_rm</module>
+            <module>xmlbeans-em</module>
+            <module>xmlbeans-have</module>
+        -->
         <module>infra-services</module>
         <module>infra-xmpp</module>
         <module>em-services</module>
@@ -21,7 +27,7 @@
     <properties>
         <Implementation-Version>1.0.0</Implementation-Version>
         <spring.version>2.5.6</spring.version>
-        <spring.security.version>2.0.4</spring.security.version>
+        <spring-security.version>2.0.8.RELEASE</spring-security.version>
         <spring.integrations.version>1.0.4.RELEASE</spring.integrations.version>
         <gx.version>1.2.6</gx.version>
         <xmlbeans-em.version>1.1.4</xmlbeans-em.version>
@@ -59,14 +65,6 @@
     </repositories>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
