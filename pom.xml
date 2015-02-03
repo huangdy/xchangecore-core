@@ -39,13 +39,10 @@
         <em-services.version>2.0.0</em-services.version>
         <em-processes.version>2.0.0</em-processes.version>
         <em-war.version>2.0.0</em-war.version>
+        <data.source>mysql</data.source>
 
         <github.global.server>github</github.global.server>
-        <!--
-            <my.hibernate.hbm2ddl.auto>update</my.hibernate.hbm2ddl.auto>
-            <my.hibernate.search.default.indexBase>target</my.hibernate.search.default.indexBase>
-            <my.annotation.driven></my.annotation.driven>
-        -->
+
     </properties>
 
     <distributionManagement>
@@ -71,6 +68,43 @@
             <version>4.4</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+
+        <profile>
+            <id>mysql</id>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>5.1.34</version>
+                </dependency>
+            </dependencies>
+            <properties>
+                <dataSourceContext>mysql</dataSourceContext>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>mssql</id>
+            <dependencies>
+                <dependency>
+                    <groupId>net.sourceforge.jtds</groupId>
+                    <artifactId>jtds</artifactId>
+                    <version>1.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>sqljdbc</artifactId>
+                    <version>4.1</version>
+                </dependency>
+            </dependencies>
+            <properties>
+                <dataSourceContext>mssql</dataSourceContext>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <build>
 
