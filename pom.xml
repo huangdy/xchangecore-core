@@ -80,9 +80,6 @@
                     <version>5.1.34</version>
                 </dependency>
             </dependencies>
-            <properties>
-                <dataSourceContext>mysql</dataSourceContext>
-            </properties>
         </profile>
 
         <profile>
@@ -99,9 +96,6 @@
                     <version>4.1</version>
                 </dependency>
             </dependencies>
-            <properties>
-                <dataSourceContext>mssql</dataSourceContext>
-            </properties>
         </profile>
 
     </profiles>
@@ -177,8 +171,6 @@
                     </configuration>
                 -->
             </plugin>
-
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>xmlbeans-maven-plugin</artifactId>
