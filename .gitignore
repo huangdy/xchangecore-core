@@ -8,7 +8,7 @@ infra-xmpp-tools/
 em-services/
 em-processes/
 em-war/
-xmlbeans-infrastructure
-xmlbeans-edxl_rm
-xmlbeans-em
-xmlbeans-have
+xmlbeans-infrastructure/
+xmlbeans-edxl_rm/
+xmlbeans-em/
+xmlbeans-have/
