@@ -19,6 +19,8 @@
         -->
         <module>infra-services</module>
         <module>infra-xmpp</module>
+        <!-- this is the xmpp node cleanup tool -->
+        <module>infra-xmpp-tools</module>
         <module>em-services</module>
         <module>em-processes</module>
         <module>em-war</module>
@@ -73,9 +75,6 @@
 
         <profile>
             <id>mysql</id>
-            <properties>
-                <data.source>mysql</data.source>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>mysql</groupId>
@@ -83,6 +82,11 @@
                     <version>5.1.34</version>
                 </dependency>
             </dependencies>
+            <properties>
+                <data.source>mysql</data.source>
+                <hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</hibernate.dialect>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+            </properties>
         </profile>
 
         <profile>
@@ -90,9 +94,6 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <id>mssql</id>
-            <properties>
-                <data.source>mssql</data.source>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>net.sourceforge.jtds</groupId>
@@ -105,6 +106,11 @@
                     <version>4.1</version>
                 </dependency>
             </dependencies>
+            <properties>
+                <data.source>mssql</data.source>
+                <hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
+                <jdbc.driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc.driverClassName>
+            </properties>
         </profile>
 
     </profiles>
@@ -112,9 +118,19 @@
     <build>
 
         <resources>
+
             <resource>
-                <directory>${basedir}/src/main/resources</directory>
+                <directory>src/main/resources</directory>
             </resource>
+
+            <!-- this section filters the different datasource specific parameters, such as jdbc.driverClassName,
+                hibernate.dialect -->
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources/contexts</directory>
+                <targetPath>contexts</targetPath>
+            </resource>
+
         </resources>
 
         <plugins>
