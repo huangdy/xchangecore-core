@@ -74,6 +74,30 @@
     <profiles>
 
         <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <log.file.directory>Logs</log.file.directory>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>unix</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <log.file.directory>/tmp</log.file.directory>
+            </properties>
+        </profile>
+        
+        <profile>
             <id>mysql</id>
             <dependencies>
                 <dependency>
@@ -83,7 +107,6 @@
                 </dependency>
             </dependencies>
             <properties>
-                <data.source>mysql</data.source>
                 <hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</hibernate.dialect>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
             </properties>
@@ -107,7 +130,6 @@
                 </dependency>
             </dependencies>
             <properties>
-                <data.source>mssql</data.source>
                 <hibernate.dialect>org.hibernate.dialect.SQLServerDialect</hibernate.dialect>
                 <jdbc.driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc.driverClassName>
             </properties>
