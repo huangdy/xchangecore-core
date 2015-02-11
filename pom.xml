@@ -82,6 +82,7 @@
             </activation>
             <properties>
                 <log.file.directory>Logs</log.file.directory>
+                <install.dir>c:\XC\ServerApps\xchangecore</install.dir>
             </properties>
         </profile>
 
@@ -94,6 +95,7 @@
             </activation>
             <properties>
                 <log.file.directory>/tmp</log.file.directory>
+                <install.dir>/usr/share/tomcat7/webapp/xchangecore</install.dir>
             </properties>
         </profile>
         
