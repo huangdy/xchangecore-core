@@ -28,6 +28,7 @@
 
     <properties>
         <Implementation-Version>1.0.0</Implementation-Version>
+        
         <spring.version>2.5.6</spring.version>
         <spring-security.version>2.0.8.RELEASE</spring-security.version>
         <spring.integrations.version>1.0.4.RELEASE</spring.integrations.version>
@@ -43,7 +44,7 @@
         <em-war.version>2.0.0</em-war.version>
 
         <github.global.server>github</github.global.server>
-
+        <ldap.domain>xchangecore</ldap.domain>
     </properties>
 
     <distributionManagement>
@@ -95,7 +96,7 @@
             </activation>
             <properties>
                 <log.file.directory>/tmp</log.file.directory>
-                <install.dir>/usr/share/tomcat7/webapp/xchangecore</install.dir>
+                <install.dir>/usr/share/tomcat7/webapps/xchangecore</install.dir>
             </properties>
         </profile>
         
