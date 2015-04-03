@@ -28,10 +28,17 @@
 
     <properties>
         <Implementation-Version>1.0.0</Implementation-Version>
-        
-        <spring.version>2.5.6</spring.version>
+
+        <spring.version>3.0.6.RELEASE</spring.version>
+        <spring-ws.version>2.0.3.RELEASE</spring-ws.version>
         <spring-security.version>2.0.8.RELEASE</spring-security.version>
-        <spring.integrations.version>1.0.4.RELEASE</spring.integrations.version>
+        <!-- 
+        <spring-integrations.version>1.0.4.RELEASE</spring-integrations.version>
+         -->
+        <spring-integrations.version>2.0.5.RELEASE</spring-integrations.version>
+        <hibernate.version>3.3.1.GA</hibernate.version>
+        <hibernate-annotation.version>3.4.0.GA</hibernate-annotation.version>
+        <smack.version>3.2.1</smack.version>
         <gx.version>1.2.6</gx.version>
         <xmlbeans-em.version>1.1.4</xmlbeans-em.version>
         <xmlbeans-have.version>1.1.2</xmlbeans-have.version>
@@ -67,7 +74,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.4</version>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.4.2</version>
         </dependency>
     </dependencies>
 
@@ -99,7 +112,7 @@
                 <install.dir>/usr/share/tomcat7/webapps/xchangecore</install.dir>
             </properties>
         </profile>
-        
+
         <profile>
             <id>mysql</id>
             <dependencies>
