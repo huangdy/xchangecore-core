@@ -157,6 +157,13 @@
 
     <build>
 
+        <testResources>
+            <testResource>
+                <filtering>true</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        
         <resources>
 
             <resource>
@@ -164,13 +171,14 @@
             </resource>
 
             <!-- this section filters the different datasource specific parameters, such as jdbc.driverClassName,
-                hibernate.dialect -->
+                hibernate.dialect
+                 -->
             <resource>
                 <filtering>true</filtering>
                 <directory>src/main/resources/contexts</directory>
                 <targetPath>contexts</targetPath>
             </resource>
-
+            
         </resources>
 
         <plugins>
