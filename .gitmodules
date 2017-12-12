@@ -1,18 +1,18 @@
-[submodule "infra-xmpp-tools"]
-	path = infra-xmpp-tools
-	url = https://github.com/huangdy/infra-xmpp-tools
-[submodule "infra-xmpp"]
-	path = infra-xmpp
-	url = https://github.com/huangdy/infra-xmpp
-[submodule "infra-services"]
-	path = infra-services
-	url = https://github.com/huangdy/infra-services
 [submodule "em-services"]
 	path = em-services
 	url = https://github.com/huangdy/em-services
 [submodule "em-processes"]
 	path = em-processes
 	url = https://github.com/huangdy/em-processes
+[submodule "infra-services"]
+	path = infra-services
+	url = https://github.com/huangdy/infra-services
+[submodule "infra-xmpp"]
+	path = infra-xmpp
+	url = https://github.com/huangdy/infra-xmpp
+[submodule "infra-xmpp-tools"]
+	path = infra-xmpp-tools
+	url = https://github.com/huangdy/infra-xmpp-tools
 [submodule "em-war"]
 	path = em-war
 	url = https://github.com/huangdy/em-war
